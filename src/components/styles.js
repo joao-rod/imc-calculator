@@ -52,13 +52,13 @@ export const InputButton = styled.input`
   margin-top: 30px;
 `;
 
-export const textLowWeight = styled.p`
-  border-radius: 5px;
-  border-color: #ff9900;
-  background-color: #F2EC6D;
+// export const textLowWeight = styled.p`
+//   border-radius: 5px;
+//   border-color: #ff9900;
+//   background-color: #F2EC6D;
 
-  color: #ff9900;
-  font-family: cursive, 'Fira Code', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-`;
+//   color: #ff9900;
+//   font-family: cursive, 'Fira Code', sans-serif;
+//   font-size: 13px;
+//   font-weight: 400;
+// `;
