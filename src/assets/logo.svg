@@ -1,0 +1,12 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="svg_2_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <text style="cursor: move;" filter="url(#svg_2_blur)" font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Poppins SemiBold'" font-size="48" id="svg_2" y="316.5" x="220" stroke-width="0" stroke="#000" fill="#535F75">IMC</text>
+  <text transform="matrix(1 0 0 1 0 0)" style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="'Poppins SemiBold'" font-size="40" id="svg_4" y="314" x="307.89844" stroke-width="0" stroke="#000" fill="#CE7975">alculator</text>
+ </g>
+</svg>
