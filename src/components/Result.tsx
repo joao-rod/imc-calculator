@@ -1,4 +1,4 @@
-import { textLowWeight } from './styles';
+// import { textLowWeight } from './styles';
 
 type ResultProps = {
   value: number;
@@ -31,7 +31,6 @@ export function Result(props: ResultProps) {
     <div>
       <h3>Seu IMC é de: {props.value.toFixed(2)}</h3>
       {getResult()}
-      <textLowWeight>teste<textLowWeight/>
     </div>
     </>
   );
