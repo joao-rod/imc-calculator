@@ -1,37 +1,37 @@
-// import { textLowWeight } from './styles';
+import { Message } from '../components/Message';
+import * as S from './styles';
 
 type ResultProps = {
   value: number;
 }
 
-export function Result(props: ResultProps) {
-  function getResult(){
-    const value = props.value;
-    if (value <= 18.5) {
-      return (
-        <p>Você está abaixo do peso</p>
-      );
-    } else if(value > 18.5 && value <= 24.9){
-      return (
-        <p>Seu peso é ideal para você</p>
-      );
-    } else if(value > 24.9 && value <= 29.9){
-      return (
-        <p>Você está acima do peso</p>
-      );
-    } else {
-      return (
-        <p>Você apresenta qudro de obesidade</p>
-      );
-    }
-  }
-
+export function Result({ value }: ResultProps) {
   return (
-    <>
     <div>
-      <h3>Seu IMC é de: {props.value.toFixed(2)}</h3>
-      {getResult()}
+      { value <= 18.5 && 
+        <S.TextUnderWeight>
+          <Message message="Você está abaixo do peso" value={value} />
+        </S.TextUnderWeight>
+      } 
+
+      {value > 18.5 && value <= 24.9 && 
+        <S.TextIdealWeight>
+          <Message message="Seu peso é ideal para você" value={value} />
+        </S.TextIdealWeight> 
+      }
+
+      {value > 24.9 && value <= 29.9 &&
+        <S.TextOverweight>
+          <Message message="Você está acima do peso" value={value} />
+        </S.TextOverweight>
+      }
+
+      {value > 30 && 
+        <S.TextExtremeWeight>
+          <Message message="Você apresenta quadro de obesidade" value={value} />
+        </S.TextExtremeWeight>
+      }
+      
     </div>
-    </>
   );
 }

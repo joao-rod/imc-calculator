@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.body`
   background-color: #CCD6DE;
   margin: auto 400px;
-  padding: 200px 1px;
-  height: 15.5rem;
+  padding: 50px 1px 300px;
+  height: 15rem;
 
   border-radius: 15px;
 `;
@@ -13,6 +13,11 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const Img = styled.img`
+  height: 50px;
+  margin-bottom: 80px;
 `;
 
 export const Text = styled.p`
@@ -43,7 +48,7 @@ export const InputButton = styled.input`
   border: none;
 
   color: #fff;
-  background-color: #0099ff;
+  background-color: #6272a4;
   font-family: cursive, 'Fira Code', sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -52,13 +57,39 @@ export const InputButton = styled.input`
   margin-top: 30px;
 `;
 
-// export const textLowWeight = styled.p`
-//   border-radius: 5px;
-//   border-color: #ff9900;
-//   background-color: #F2EC6D;
+export const TextResult = styled.div`
+  border-radius: 5px;
+  border: 1px solid #41325C;
+  color: #41325C;
 
-//   color: #ff9900;
-//   font-family: cursive, 'Fira Code', sans-serif;
-//   font-size: 13px;
-//   font-weight: 400;
-// `;
+  width: 290px;
+  margin-top: 15px;
+
+  font-family: cursive, 'Fira Code', sans-serif;
+
+  h3{
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  p{
+    font-size: 15px;
+    font-weight: 400;
+  }
+`;
+
+export const TextUnderWeight = styled(TextResult)`
+  background-color: #FFFF95;
+`;
+
+export const TextIdealWeight = styled(TextResult)`
+  background-color: #50fa7b;
+`;
+
+export const TextOverweight = styled(TextResult)`
+  background-color: #FF6A79;
+`;
+
+export const TextExtremeWeight = styled(TextResult)`
+  background-color: #FF0067;
+`;

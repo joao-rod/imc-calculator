@@ -1,48 +1,45 @@
-import React from 'react';
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Result } from '../components/Result';
-import { Container, Form, Text, Input, InputButton } from '../components/styles';
+import { Container, Form, Img, Text, Input, InputButton } from '../components/styles';
+import logoImg from '../assets/images/logo.svg';
 
 export function Home() {
   const [altura, setNewAltura] = useState('');
   const [peso, setNewPeso] = useState('');
-  const [clicked, setOnClicked] = useState(false);
-  const onClicked = () => setOnClicked(true);
-  // const onClicked = stateClicked();
+  const [imc, setImc] = useState(0);
 
-  function calculateImc() {
-    let a = parseFloat(altura);
-    let p = parseFloat(peso);
-    let imc = p / (a*a);
-    
-    return imc;
+  function calculateImc(e: FormEvent) {
+    e.preventDefault();
+
+    const a = parseFloat(altura);
+    const p = parseFloat(peso);
+    const imc = p / (a*a);
+
+    setImc(imc)
   }
 
-
-  // function stateClicked() {
-  //   if(altura !== '' && peso !== '') {
-  //     return () => setOnClicked(true);
-  //   } else {
-  //     return () => setOnClicked(false);
-  //   }
-  // }
-
+  useEffect(() => {
+    if(!altura || !peso) {
+      setImc(0);
+    }
+  }, [altura, peso]);
 
   return (
     <>
     <Container>
-      <div>
-        <Form onSubmit={(event: { preventDefault: () => any; }) => event.preventDefault()}>
+      <main>
+        <Form onSubmit={calculateImc}>
+          <Img src={logoImg} alt="Logotipo" />
           <Text>Altura</Text>
-          <Input type="text" onChange={(event: { target: { value: React.SetStateAction<string>; }; }) => setNewAltura(event.target.value) } value={altura}/>
+          <Input type="text" onChange={({target}) => setNewAltura(target.value)} value={altura}/>
           <Text>Peso</Text>
-          <Input type="text" onChange={(event: { target: { value: React.SetStateAction<string>; }; }) => setNewPeso(event.target.value) } value={peso} />
-          <InputButton type="submit" value="Calcular" onClick={onClicked}/>
-          
-          { clicked ? <Result value={calculateImc()}/> : null }
-          {console.log(clicked + " essa função")}
+          <Input type="text" onChange={({target}) => setNewPeso(target.value) } value={peso} />
+
+          <InputButton type="submit" value="Calcular" />
+
+         {!!imc && <Result value={imc}/>}
         </Form>
-      </div>
+      </main>
     </Container>
     </>
   )
